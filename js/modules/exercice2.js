@@ -1,6 +1,6 @@
 "use str:ict";
 
-import { addElement, removeLinksDefaultBehavior } from "../utils/functions.js";
+import { addElement } from "../utils/functions.js";
 
 (function () {
 
@@ -25,8 +25,6 @@ import { addElement, removeLinksDefaultBehavior } from "../utils/functions.js";
 	addLink(topics.formation, "Formation");
 
 	Object.keys(topics).forEach(function (key) { linkTopicToView(topics[key], view); });
-
-	removeLinksDefaultBehavior();
 })();
 
 function wrapInTopic(parent, identifier) {

@@ -3,7 +3,6 @@
 (function () {
 
 	const subject = document.getElementById("subject");
-
 	window.onload = function () {
 		
 		subject.setAttribute("hidden", true);

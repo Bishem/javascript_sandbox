@@ -1,6 +1,7 @@
 "use strict";
 
-(function () {
+import { removeLinksDefaultBehavior } from "./utils/functions.js";
 
-	//TODO add generic to website behaviours
+(function () {
+	removeLinksDefaultBehavior();
 })();
