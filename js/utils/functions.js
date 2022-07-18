@@ -16,3 +16,17 @@ export function removeLinksDefaultBehavior() {
 	const links = document.getElementsByTagName("a");
 	Array.from(links).forEach(link => link.onclick = ev => ev.preventDefault());
 }
+
+export function hide(element) {
+	
+	element.style.visibility = "hidden";
+	element.style.height = "0px";
+}
+
+export function addLink(parent, content, link) {
+	return addElement("a", parent, content, { href: link });
+}
+
+export function empty(element) {
+	if (element) element.innerHTML = "";
+}

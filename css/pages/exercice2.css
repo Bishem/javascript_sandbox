@@ -1,35 +1,33 @@
 :root {
-	--topic-height: 50px;
+	--topics-height: 50px;
 	--page_offset: 50px;
 }
 
-#view, .article {
+#view, article {
 	border-radius: 10px;
-	background-color: white;
+	background-color: antiquewhite;
 }
 
 #view {
-	padding: calc(var(--topic-height) / 2);
-	min-height: calc(100% - var(--topic-height) - var(--page_offset));
+	padding: calc(var(--topics-height) / 2);
+	min-height: calc(100% - var(--topics-height) - var(--page_offset));
 }
 
-.article > * {
+article > * {
 	border-radius: 10px;
-	margin-bottom: calc(var(--topic-height) / 2);
+	margin-bottom: calc(var(--topics-height) / 2);
 }
 
 #view h1 {
 	background-color: black;
-	height: var(--topic-height);
-	line-height: var(--topic-height);
-	padding: 0 var(--topic-height);
+	height: var(--topics-height);
+	line-height: var(--topics-height);
+	padding: 0 var(--topics-height);
 }
 
 #view p {
-	background-color: black;
-	height: calc(100% - (var(--topic-height) / 2));
 	width: 100%;
-	padding: calc(var(--topic-height) / 2);
+	padding: calc(var(--topics-height) / 2);
 }
 
 #topics, #view { 
@@ -37,19 +35,18 @@
 }
 
 #topics, .topic, .topic a {
-	height: var(--topic-height);
+	height: var(--topics-height);
 }
 
 .topic a {
 	border-radius: 10px;
-	border: 1px solid white; 
-	line-height: var(--topic-height);
-	height: var(--topic-height);
-	margin: 0 calc(var(--topic-height) / 2);
-	padding: 0 calc(var(--topic-height) / 2);
+	border: 1px solid antiquewhite; 
+	line-height: var(--topics-height);
+	margin: 0 calc(var(--topics-height) / 2);
+	padding: 0 calc(var(--topics-height) / 2);
 }
 
 .topic a:hover {
 	color: dimgray;
-	background-color: white;
+	background-color: antiquewhite;
 }

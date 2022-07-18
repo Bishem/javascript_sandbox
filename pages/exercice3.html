@@ -9,8 +9,18 @@
 	<link rel="stylesheet" href="../css/main.css">
 </head>
 <body>
-	welcome to three
-	<script type="module" src="../js/main.js"></script>
+	<div class="content-wrapper flex column align">
+		<header id="universities" class="flex distribute">
+			<h1 id="title">Trouver des universités</h1>
+			<select class="nav" name="pays" id="pays">
+				<option value="France" id="france">France</option>
+				<option value="Allemagne" id="allemagne">Allemagne</option>
+				<option value="Andorre" id="andorre">Andorre</option>
+			</select>
+		</header>
+		<main id="view" class="flex wrap align center fill"></main>
+	</div>
 	<script type="module" src="../js/modules/exercice3.js"></script>
+	<script type="module" src="../js/main.js"></script><!-- must be last in body -->
 </body>
 </html>

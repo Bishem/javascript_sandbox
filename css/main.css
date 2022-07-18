@@ -1,8 +1,6 @@
 * {
 	margin: 0;
 	padding: 0;
-	width: auto;
-	height: auto;
 	border: none;
 	position: relative;
 	box-sizing: border-box;
@@ -68,9 +66,19 @@ quick facade classes, use to quickly set elements behaviour
 	flex-wrap: wrap;
 }
 
+.split-4 {
+	flex-basis: 25%;
+}
+
+.split-2 {
+	flex-basis: 50%;
+}
+
 /* setting up basic tags generic styles */
-html, body {
-	height: 99%;
+html, body, iframe {
+	height: 100%;
+	width: 100%;
+	float: left;
 }
 
 a {
