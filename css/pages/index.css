@@ -2,27 +2,25 @@
 	--nav-height: 50px;
 }
 
-nav {
-	background-color: darkred;
+nav, .nav-item, .nav-item a {
+	background-color: goldenrod;
 	height: var(--nav-height);
 }
 
 .nav-item a {
-	color: white;
 	line-height: var(--nav-height);
-	height: var(--nav-height);
 	padding: 0 calc(var(--nav-height) / 2);
 }
 
 .nav-item a:hover {
-	color: darkred;
+	color: black;
 	background-color: white;
 }
 
 #view {
 	width: 100%;
-	height: calc(99.7% - var(--nav-height));
-	border: none;
+	height: 100%;
+	height: calc(100% - var(--nav-height));
 }
 
 

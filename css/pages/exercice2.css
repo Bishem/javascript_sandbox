@@ -1,0 +1,47 @@
+:root {
+	--topic-height: 50px;
+	--page_offset: 50px;
+}
+
+#content {
+	border-radius: 10px;
+	background-color: white;
+	height: calc(100% - var(--topic-height) - var(--page_offset));
+}
+
+/* #content > * {
+	width: 100%;
+} */
+
+#content h1 {
+	background-color: black;
+	line-height: var(--topic-height);
+	margin: 0 auto;
+	padding: 0 calc(var(--topic-height) / 2);
+
+}
+
+#content p {
+
+}
+
+#topics, #content { 
+	margin: 10px 50px;
+}
+
+#topics, .topic, .topic a {
+	height: var(--topic-height);
+}
+
+.topic a {
+	border-radius: 10px;
+	border: 1px solid white; 
+	line-height: var(--topic-height);
+	margin: 0 calc(var(--topic-height) / 2);
+	padding: 0 calc(var(--topic-height) / 2);
+}
+
+.topic a:hover {
+	color: dimgray;
+	background-color: white;
+}

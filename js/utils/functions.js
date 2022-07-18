@@ -5,7 +5,8 @@ export function addElement(name, parent, content, attributes) {
 
 	parent.appendChild(element);
 	element.textContent = content;
-	Object.keys(attributes).forEach(key => element.setAttribute(key, attributes[key]));
+	if(attributes) Object.keys(attributes).forEach(key => element.setAttribute(key, attributes[key]));
 
 	return element;
+	
 }

@@ -3,23 +3,25 @@
 (function () {
 	
 	const view = document.getElementById("view");
-	
-	const links = {
-		exo1: document.getElementById("exercice-1"),
-		exo2: document.getElementById("exercice-2"),
-		exo3: document.getElementById("exercice-3")
-	};
-	
-	links.exo1.onclick = function () {
-		view.setAttribute("src", "pages/exercice1.html");
-	};
-	
-	links.exo2.onclick = function () {
-		view.setAttribute("src", "pages/exercice2.html");
-	};
-	
-	links.exo3.onclick = function () {
-		view.setAttribute("src", "pages/exercice3.html");
-	};
-	
+
+	const exo1= document.getElementById("exercice-1");
+	const exo2= document.getElementById("exercice-2");
+	const exo3= document.getElementById("exercice-3");
+
+	routing(exo1, "pages/exercice1.html", view);
+	routing(exo2, "pages/exercice2.html", view);
+	routing(exo3, "pages/exercice3.html", view);
+
+	removeLinksDefaultBehavior();
 })();
+
+function removeLinksDefaultBehavior() {
+	const links = document.getElementsByTagName("a");
+	Array.from(links).forEach(link => link.onclick = ev => ev.preventDefault());
+}
+
+function routing(route, source, view) {
+	route.onclick = function () {
+		view.setAttribute("src", source)
+	}
+}
