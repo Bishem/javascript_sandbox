@@ -1,4 +1,4 @@
-"use str:ict";
+"use strict";
 
 import { addElement, removeLinksDefaultBehavior } from "../utils/functions.js";
 
