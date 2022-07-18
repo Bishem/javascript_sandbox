@@ -1,6 +1,6 @@
-"use strict";
+"use str:ict";
 
-import { addElement } from "../utils/functions.js";
+import { addElement, removeLinksDefaultBehavior } from "../utils/functions.js";
 
 (function () {
 
@@ -10,42 +10,59 @@ import { addElement } from "../utils/functions.js";
 	});
 
 	const view = addElement("main", document.body, "", {
-		id: "content",
-		class: "flex center wrap"
+		id: "view",
+		class: "flex column align"
 	});
 
 	const topics = {
-		competences: addElement("a", createTopic(nav), "Compétences", { id: "btn-skills" }),
-		experience: addElement("a", createTopic(nav), "Expérience", { id: "btn-experience" }),
-		formation: addElement("a", createTopic(nav), "Formation", { id: "btn-training" })
+		competences: wrapInTopic(nav, "btn-skills"),
+		experience: wrapInTopic(nav, "btn-experience"),
+		formation: wrapInTopic(nav, "btn-training")
 	}
+	
+	addLink(topics.competences, "Compétences");
+	addLink(topics.experience, "Expérience");
+	addLink(topics.formation, "Formation");
 
-	Object.keys(topics).forEach(key => {
+	Object.keys(topics).forEach(function (key) { linkTopicToView(topics[key], view); });
 
-		const topic = topics[key];
-
-		topic.onClick = function () {
-
-			addElement("h1", view, topic.innerHTML);
-			addElement("p", view, `Lorem ipsum dolor sit amet consectetur, adipisicing elit.<br>Praesentium necessitatibus inventore provident esse ab, reprehenderit non<br>veniam vero ratione, fugiat deserunt temporibus porro exercitationem asperiores tempora minus ut delectus est?<br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br>Praesentium necessitatibus inventore provident esse ab, reprehenderit non <br>veniam vero ratione, fugiat deserunt temporibus porro exercitationem asperiores tempora minus ut delectus est?<br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br>Praesentium necessitatibus inventore provident esse ab, reprehenderit non <br>veniam vero ratione, fugiat deserunt temporibus porro exercitationem asperiores tempora minus ut delectus est?<br>veniam vero ratione, fugiat deserunt temporibus porro exercitationem asperiores tempora minus ut delectus est?`);
-
-		};
-
-	});
-
+	removeLinksDefaultBehavior();
 })();
 
-function createTopic(topics) {
-	return addElement("div", topics, "", { class: "topic" });
+function wrapInTopic(parent, identifier) {
+	return addElement("div", parent, "", { id: identifier, class: "topic" });
+}
+
+function addLink(parent, content) {
+	return addElement("a", parent, content, { href:"" });
 }
 
 function linkTopicToView(topic, view) {
+	
+	topic.onclick = function () {
 
-	topic.onClick = function () {
+		const articles = view.children;
 
-		addElement("h1", view, topic.innerHTML);
-		addElement("p", view, `Lorem ipsum dolor sit amet consectetur, adipisicing elit.<br>Praesentium necessitatibus inventore provident esse ab, reprehenderit non<br>veniam vero ratione, fugiat deserunt temporibus porro exercitationem asperiores tempora minus ut delectus est?<br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br>Praesentium necessitatibus inventore provident esse ab, reprehenderit non <br>veniam vero ratione, fugiat deserunt temporibus porro exercitationem asperiores tempora minus ut delectus est?<br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br>Praesentium necessitatibus inventore provident esse ab, reprehenderit non <br>veniam vero ratione, fugiat deserunt temporibus porro exercitationem asperiores tempora minus ut delectus est?<br>veniam vero ratione, fugiat deserunt temporibus porro exercitationem asperiores tempora minus ut delectus est?`);
+		let duplicate;
 
+		Object.keys(articles).forEach(key => {
+
+			const article = articles[key];
+			const title = article.firstChild;
+
+			if(topic.textContent === title.textContent) {
+				duplicate = article;
+			}
+		})
+
+		if(!duplicate) wrapInArticle(topic, view);
 	};
+}
 
+function wrapInArticle(topic, view) {
+
+	const article = addElement("div", view, "", { class: "article flex column align" });
+
+	addElement("h1", article, topic.textContent);
+	addElement("p", article, "Lorem ipsum dolor sit amet consectetur, adipisicing elit.<br>Praesentium necessitatibus inventore provident esse ab, reprehenderit non<br>veniam vero ratione, fugiat deserunt temporibus porro exercitationem asperiores tempora minus ut delectus est?<br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br>Praesentium necessitatibus inventore provident esse ab, reprehenderit non <br>veniam vero ratione, fugiat deserunt temporibus porro exercitationem asperiores tempora minus ut delectus est?<br>Lorem ipsum dolor sit amet consectetur, adipisicing elit. <br>Praesentium necessitatibus inventore provident esse ab, reprehenderit non <br>veniam vero ratione, fugiat deserunt temporibus porro exercitationem asperiores tempora minus ut delectus est?<br>veniam vero ratione, fugiat deserunt temporibus porro exercitationem asperiores tempora minus ut delectus est?");
 }
